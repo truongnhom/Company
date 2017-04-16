@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./template/commonLayout.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="content">
+        <h:form id="frmGioco">
+            <div class="container">
+                <div class="stepwizard col-md-offset-3">
+                    <div class="stepwizard-row setup-panel">
+                        <div class="stepwizard-step">
+                            <p:commandButton icon="ui-icon-blank" actionListener="#{giocoBean.goAnagrafica}" update="pageContent" id="btnAnagrafica" onclick="goAnagrafica()" styleClass="btnCircle"></p:commandButton>
+                            <p>Anagrafica</p>
+                        </div>
+                        <div class="stepwizard-step">
+                            <p:commandButton icon="ui-icon-blank" actionListener="#{giocoBean.goAnagraficaDelGioco}" update="pageContent" id="btnAnagraficaDelGioco" onclick="goAnagraficaDelGioco()" styleClass="btnCircle"></p:commandButton>
+                            <p>Anagrafica del gioco</p>
+                        </div>
+                        <div class="stepwizard-step">
+                            <p:commandButton icon="ui-icon-blank" actionListener="#{giocoBean.goVariante}" update="pageContent" id="btnVariante" onclick="goVariante()" styleClass="btnCircle"></p:commandButton>
+                            <p>Variante</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+        </h:form>
+        <h:panelGroup id="pageContent">
+            <h:panelGroup>
+                <ui:include src="#{giocoBean.pageSelected}.xhtml"/>
+            </h:panelGroup>
+        </h:panelGroup>
+    </ui:define>
+
+</ui:composition>
